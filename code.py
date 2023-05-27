@@ -43,7 +43,14 @@ def create_orders(data):
                 quantity=str(amountFinal))
                 
             orders.append(order)
-        except
+     except BinanceAPIException as e:
+        print(f'Binance API error: {e}')
+    except BinanceOrderException as e:
+        print(f'Binance order error: {e}')
+    except Exception as e:
+        print(f'Unexpected error: {e}')
+
+    return orders
 
         
 def create_orders(data):
